@@ -4,3 +4,7 @@ obj/
 riderModule.iml
 /_ReSharper.Caches/
 .idea
+GameBlog/passwordsConfig.json
+GameBlog/appsettings.json
+GameBlog/appsettings.Development.json
+GameBlog/browsersync-update.txt
