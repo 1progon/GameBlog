@@ -1,0 +1,11 @@
+@using Microsoft.AspNetCore.Html
+@model IEnumerable<string>
+
+<div class="container p-3-v">
+    <h2>Ошибка 404 - Ничего не найдено</h2>
+
+    @foreach (var error in Model)
+    {
+        <div class="red notice">@(new HtmlString(error))</div>
+    }
+</div>

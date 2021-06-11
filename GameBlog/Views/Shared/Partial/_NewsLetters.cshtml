@@ -1,0 +1,18 @@
+﻿<!-- Newsletter section -->
+<section class="newsletter-section">
+    <div class="container">
+        <h2>Subscribe to newsletter</h2>
+        <form class="newsletter-form"
+              method="post"
+              asp-controller="Pages"
+              asp-action="NewsLetters">
+            <input type="text" placeholder="ENTER YOUR E-MAIL" name="email">
+            <button class="site-btn" 
+                    type="submit">
+                subscribe
+                <img src="/img/icons/double-arrow.png" alt="subscribe image"/>
+            </button>
+        </form>
+    </div>
+</section>
+<!-- Newsletter section end -->

@@ -1,0 +1,51 @@
+@model GameBlog.ViewModel.Blog.BlogPostIndexViewModel
+
+@section metaTitle {Все записи в Блоге}
+
+@section metaDesc {Читайте самые свежие туристические новости в блоге компании}
+
+@section metaKeys {блог о туризме, записи о туризме, где отдыхать, как отдыхать, в какой отель заселиться, информация для туриста}
+
+<!-- Page top section -->
+<section class="page-top-section" style="background-image: url('/img/page-top-bg/3.jpg')">
+    <div class="page-info">
+        <h2>Blog</h2>
+        <div class="site-breadcrumb">
+            <span>Home</span> <span>/</span> <span>All Blog Posts</span></div>
+    </div>
+</section>
+<!-- Page top end-->
+
+
+<!-- Blog page -->
+<section class="blog-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-9 col-lg-8 col-md-7">
+
+                @foreach (var post in @Model.BlogPosts)
+                {
+                    <div class="big-blog-item">
+                        <img src="@post.Image" alt="#" class="blog-thumbnail">
+                        <div class="blog-content text-box text-white">
+                            <div class="top-meta">
+                                @post.UpdatedAt / in
+                                <a asp-controller="BlogCategories"
+                                   asp-action="Show"
+                                   asp-route-slug="@post.Category.Slug">
+                                    @post.Category.Name
+                                </a>
+                            </div>
+                            <h3>@post.Name</h3>
+                            <p>@post.Description</p>
+                            <a asp-action="Show" asp-route-postSlug="@post.Slug" class="read-more">Read Article</a>
+                        </div>
+                    </div>
+                }
+
+                <vc:pagination pagination="@Model.Pagination"/>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Blog page end-->

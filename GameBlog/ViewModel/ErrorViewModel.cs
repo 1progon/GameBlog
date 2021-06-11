@@ -1,6 +1,5 @@
-using System;
 
-namespace GameBlog.Models
+namespace GameBlog.ViewModel
 {
     public class ErrorViewModel
     {

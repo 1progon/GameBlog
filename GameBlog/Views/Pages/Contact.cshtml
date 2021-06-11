@@ -1,0 +1,89 @@
+﻿@model GameBlog.ViewModel.ContactFormViewModel
+<!-- Page top section -->
+<section class="page-top-section" style="background-image: url('/img/page-top-bg/4.jpg')">
+    <div class="page-info">
+        <h2>Contact</h2>
+        <div class="site-breadcrumb">
+            <a href="/">Home</a> /
+            <span>Contact page</span>
+        </div>
+    </div>
+</section>
+<!-- Page top end-->
+
+<!-- Contact page -->
+<section class="contact-page">
+    <div class="container">
+        <div class="map">
+
+        </div>
+        <div class="row">
+            <div class="col-lg-7 order-2 order-lg-1">
+                <style>
+                    form span {
+                        color: white;
+                    }
+                </style>
+
+                @if ((string) ViewData["contactMessage"] == "success")
+                {
+                    <div class="alert alert-success">
+                        Message sent!
+                    </div>
+                }
+                else if ((string) ViewData["contactMessage"] == "error")
+                {
+                    <div class="alert alert-danger">
+                        Error, Message not sent!
+                    </div>
+                }
+                <form class="contact-form" method="post">
+                    <div asp-validation-summary="ModelOnly"></div>
+                    <span asp-validation-for="Name"></span>
+                    <label asp-for="Name" hidden></label>
+                    <input type="text" placeholder="Your name" asp-for="Name">
+
+                    <span asp-validation-for="Email"></span>
+                    <label asp-for="Email" hidden></label>
+                    <input type="text" placeholder="Your e-mail" asp-for="Email">
+
+                    <span asp-validation-for="Subject"></span>
+                    <label asp-for="Subject" hidden></label>
+                    <input type="text" placeholder="Subject" asp-for="Subject">
+
+                    <span asp-validation-for="Message"></span>
+                    <label asp-for="Message" hidden></label>
+                    <textarea placeholder="Message" asp-for="Message"></textarea>
+
+                    <button class="site-btn"
+                            type="submit">
+                        Send message<img src="/img/icons/double-arrow.png" alt=""/>
+                    </button>
+                </form>
+            </div>
+            <div class="col-lg-5 order-1 order-lg-2 contact-text text-white">
+                <h3>Say hello!</h3>
+                <p>Hello my friend! How are you?</p>
+                <div class="cont-info">
+                    <div class="ci-icon">
+                        <img src="/img/icons/location.png" alt="">
+                    </div>
+                    <div class="ci-text">street</div>
+                </div>
+                <div class="cont-info">
+                    <div class="ci-icon">
+                        <img src="/img/icons/phone.png" alt="">
+                    </div>
+                    <div class="ci-text">34534543</div>
+                </div>
+                <div class="cont-info">
+                    <div class="ci-icon">
+                        <img src="/img/icons/mail.png" alt="">
+                    </div>
+                    <div class="ci-text">email</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact page end-->

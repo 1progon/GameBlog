@@ -1,0 +1,26 @@
+@model GameBlog.ViewModel.Blog.BlogCategoryShowViewModel
+
+@section metaTitle {Категория @Model.Category.Name @(Model.Pagination.PageN > 1 ? Model.Pagination.PageN as object : "")}
+
+@section metaDesc {@Model.Category.MetaDescription}
+
+@section metaKeys {@Model.Category.MetaKeywords}
+
+<div class="container">
+    <h2>Список всех записей в категории "@Model.Category.Name"</h2>
+
+    <div class="simple-listing">
+        @foreach (var post in Model.BlogPosts)
+        {
+            <a asp-controller="BlogPosts"
+               asp-action="Show"
+               asp-route-postSlug="@post.Slug">
+                <div class="simple-listing-item">
+                    @post.Name
+                </div>
+            </a>
+        }
+    </div>
+
+    <vc:pagination pagination="@Model.Pagination"/>
+</div>

@@ -1,0 +1,30 @@
+@model Pagination
+
+@if (Model.TotalPages > 1)
+{
+    <div class="pagination">
+        @if (Model.HasPreviousPage)
+        {
+            <a class="btn blue"
+               asp-controller="@Model.ControllerName"
+               asp-action="@Model.ActionName"
+               asp-route-sortBy="@ViewBag.SortBy"
+               asp-route-pageN="@((Model.PageN - 1) as object)">
+                Назад
+            </a>
+        }
+
+        <span class="btn current-page">@(Model.PageN as object)</span>
+
+        @if (Model.HasNextPage)
+        {
+            <a class="btn blue"
+               asp-controller="@Model.ControllerName"
+               asp-action="@Model.ActionName"
+               asp-route-sortBy="@ViewBag.SortBy"
+               asp-route-pageN="@((Model.PageN + 1) as object)">
+                Вперёд
+            </a>
+        }
+    </div>
+}
